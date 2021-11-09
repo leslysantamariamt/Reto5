@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
     <head>
+        <base href="/"/>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +13,30 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="/style/miestilo.css"/>
+    
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-dark bg-dark">
+           <nav class="navbar navbar-light" style="background-color: #CC99CC;">
                 <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1">QUADBIKES - OMEGA PRO</span>
+                    
+                   <a class="navbar-brand" href="index.html"> <img src="https://aws-samishop-tienda.s3.amazonaws.com/00000CB1/es-PE/images/imagen1/7_yfm700fwad.webp" width="30" height="30" class="d-inline-block align-top" alt="">INICIO / HOME</a>
+                    
                     <button onClick="logout()" class="btn btn-light">Logout</button>
+                    
                 </div>
+               
             </nav>
+            
             <div class="pt-2">
                 <figure class="text-center">
                     <blockquote class="blockquote">
                         <p>Alquiler de cuatrimotos de alta gama.</p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
-                        Grupo Omega: <cite title="Source Title">Leidy Cruz, Lesly Santamaria, Leandro Silva, Enrique Ceron</cite>
+                        Grupo Omega: <cite title="Source Title">Leidy Cruz, Lesly Santamaria.</cite>
                     </figcaption>
                 </figure>
             </div>
@@ -49,6 +58,7 @@
                 <div class="pt-3 row">
                     <div class="col-4">
                         <div class="card text-white bg-secondary mb-3">
+                            <img class="card-img-top" src="https://www.motorcyclesports.net/wp-content/uploads/2020/05/ATV-Swap-Garage-3.jpg" alt="Card image cap">
                             <div class="card-header">Categorías</div>
                             <div class="card-body">
                                 <p class="card-text">Aquí podrá ver las cuatrimotos que hay en el sistema separados por Categorías / Category.</p>
@@ -59,6 +69,7 @@
 
                     <div class="col-4">
                         <div class="card text-white bg-primary mb-3">
+                            <img class="card-img-top" src="https://media.istockphoto.com/photos/quad-bike-fun-picture-id1183836478?k=20&m=1183836478&s=612x612&w=0&h=P5yFdTmR9yv5cMZgLd9YXV5dKlHRvSoHvndn2HPvs7o=" alt="Card image cap">
                             <div class="card-header">Quadbikes</div>
                             <div class="card-body">
                                 <p class="card-text">Aquí podrá guardar, actualizar, eliminar y verificar información de las Cuatrimotos / Quadbikes.</p>
@@ -70,6 +81,7 @@
 
                     <div class="col-4">
                         <div class="card text-white bg-success mb-3">
+                            <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0b/24/ea/75.jpg" alt="Card image cap">
                             <div class="card-header">Clientes</div>
                             <div class="card-body">
                                 <p class="card-text">Aquí podrá guardar, actualizar, eliminar y verificar información de los Clientes / Client.</p>
@@ -82,6 +94,7 @@
                 <div class="pt-3 row">
                     <div class="col-4">
                         <div class="card text-white bg-danger mb-3">
+                            <img class="card-img-top" src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/a4/77/01.jpg" alt="Card image cap">
                             <div class="card-header">Mensajes</div>
                             <div class="card-body">
                                 <p class="card-text">Aquí podrá registrar y visualizar los Mensajes / Messages que se encuentran registrados en el sistema.</p>
@@ -92,6 +105,7 @@
 
                     <div class="col-4">
                         <div class="card text-dark bg-warning mb-3">
+                            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/03/22/11/04/soil-3250045_640.jpg" alt="Card image cap">
                             <div class="card-header">Reservas</div>
                             <div class="card-body">
                                 <p class="card-text">Aquí podrá registrar y visualizar las Reservas / Reservation en el sistema.</p>
@@ -102,6 +116,7 @@
 
                     <div class="col-4">
                         <div class="card text-dark bg-info mb-3">
+                            <img class="card-img-top" src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/01/35/91.jpg" alt="Card image cap">
                             <div class="card-header">Reportes</div>
                             <div class="card-body">
                                 <p class="card-text">Aquí podrá visualizar los reportes / Reports en el sistema.</p>
@@ -131,9 +146,9 @@
             $("#user").html(data.name);
             $(".unauthenticated").hide();
             $(".authenticated").show();
-
         });
-
+        
+       
 
         var logout = function () {
             $.post("/logout", function () {

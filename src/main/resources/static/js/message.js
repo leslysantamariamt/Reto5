@@ -1,6 +1,6 @@
-var urlBaseMessage = "http://localhost:8080/api/Message";
-var urlBaseClient = "http://localhost:8080/api/Client";
-var urlBaseQuadbike = "http://localhost:8080/api/Quadbike";
+var urlBaseMessage = "http://150.136.58.216:8080/api/Message";
+var urlBaseClient = "http://150.136.58.216:8080/api/Client";
+var urlBaseQuadbike = "http://150.136.58.216:8080/api/Quadbike";
 
 $(document).ready(getMessage);
 function getMessage() {
@@ -41,8 +41,8 @@ function getMessage() {
                 $("#allItems").append("<td>" + misItems[i].messageText + "</td>");
                 $("#allItems").append("<td>" + misItems[i].quadbike.name + "</td>");
                 $("#allItems").append("<td>" + misItems[i].client.name + "</td>");
-                $("#allItems").append('<td><button class="btn btn-link" onclick="deleteMessage(' + misItems[i].idMessage + ')">Borrar Mensaje</button>');
-                $("#allItems").append('<td><button class="btn btn-link" onclick="getMessageById(' + misItems[i].idMessage + ')">Actualizar Mensaje</button>');
+                $("#allItems").append('<td><button class="btn btn-outline-danger" onclick="deleteMessage(' + misItems[i].idMessage + ')">Borrar Mensaje</button>');
+                $("#allItems").append('<td><button class="btn btn-outline-info" onclick="getMessageById(' + misItems[i].idMessage + ')">Actualizar Mensaje</button>');
                 $("#allItems").append("</tr>");
             }
         },

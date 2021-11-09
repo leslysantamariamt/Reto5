@@ -13,13 +13,24 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="/style/miestilo.css"/>
+    
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body class='algo'> 
         <div class="container">
-            <nav class="navbar navbar-dark bg-dark">
+            <nav class="navbar navbar-light" style="background-color: #CC99CC;">
                 <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1">QUADBIKES - OMEGA PRO</span>
+                    
+                   <a class="navbar-brand" href="index.html"> <img src="https://aws-samishop-tienda.s3.amazonaws.com/00000CB1/es-PE/images/imagen1/7_yfm700fwad.webp" width="30" height="30" class="d-inline-block align-top" alt="">INICIO / HOME</a>
+                    <!--<a class="navbar-brand-toggle" href="index.html">Inicio </a>-->
+                    <a class="navbar-brand-toggle" href="category.html">Category / Categoria</a>
+                    <a class="navbar-brand-toggle" href="quadbike.html">Quadbikes / Cuatrimoto</a>
+                   <a class="navbar-brand-toggle" href="client.html">Clients / Clientes</a>
+                    <a class="navbar-brand-toggle" href="message.html">Message / Mensaje</a>
+                    <a class="navbar-brand-toggle" href="reservation.html">Reservation / Reservación</a>
+                    <a class="navbar-brand-toggle" href="report.html">Reports / Reportes</a>
                     <button onClick="logout()" class="btn btn-light">Logout</button>
                 </div>
             </nav>
@@ -30,7 +41,7 @@
                         <p>Reportes / Reports</p>
                     </blockquote>
                     <figcaption class="blockquote-footer">
-                        Grupo Omega: <cite title="Source Title">Leidy Cruz, Lesly Santamaria, Leandro Silva, Enrique Ceron</cite>
+                        Grupo Omega: <cite title="Source Title">Leidy Cruz, Lesly Santamaria.</cite>
                     </figcaption>
                 </figure>
             </div>
@@ -52,24 +63,78 @@
         <div class="container authenticated" style="display:none">
             Hola <span id="user"></span>, aquí puedes visualizar los reportes.
 
-            <div id="info" style="display: none;">
+            <div id="info">
                 <table class="table table-hover">
                     <thead>
-                    <th> <button class="btn btn-success" onclick="getReportByStatus()">Reporte por Estado / Status Report</button></th>
-                    <th> <button class="btn btn-success" onclick="getReportByClient()">Reporte por Cliente / Client Report</button></th>
-                    <th> <button class="btn btn-success" onclick="getReportByDate()">Reportes por Fecha / Date Reports</button></th>
+                    <th> <button class="btn btn-outline-dark-toggle" id="resultadoStatus" onclick="getReportByStatus()">Reporte por Estado / Status Report</button></th>
+                    <th> <button class="btn btn-outline-dark-toggle" id="resultadoClients" onclick="getReportByClient()">Reporte por Cliente / Client Report</button></th>
+                    <th> <button class="btn btn-outline-dark-toggle" id="resultadoDate" onclick="mostrarfechas()">Reportes por Fecha / Date Reports</button></th>
                     </thead>
                     <tbody id="allItems"></tbody>
                 </table>
+
             </div>
 
+                <div id="status" style="display: none;">
+                <table class="table table-hover">
+                    <thead>
+                    <th> <label class="text-success" for="completed">Completado / Completed: </label> <label   id="completed"> </label> </th>
+                    <th><label class="text-danger" for="cancelled">Cancelado / cancelled: </label> <label id="cancelled" ></label></th>
+                    </thead>
+                    <tbody id="allStatus"></tbody>
+                </table>
+
+            </div>
+           <div id="dates" style="display: none;">
+                
+                <table class="table table-hover">
+                    <thead>
+                    <th> <label for="Name">Fecha de inicio / Start Date</label>
+                    <input class="form-control" type="date"  name="startDate" id="Dateinicio" placeholder="Start Date" aria-label="StartDate"
+                           required> </th>
+                    <th><label for="Name">Fecha de devolución / Devolution Date</label>
+                    <input class="form-control" type="date" name="devolutionDate" id="DateFin" placeholder="Devolution Date" aria-label="StarDate"
+                           required>
+                    </th>
+                    <th><button class="btn btn-info" id="resultadoStatus" onclick="getReportByDate()">Visualizar Reporte por Fecha / Show Report By Date</button></th>
+                    </thead>
+                    <tbody id="allDates"></tbody>
+                </table>
+               </div>
+            
+            <div id="dates2" style="display:none"> 
+               <table class="table table-hover " >
+                    <thead>
+                    <th> <label for="Name">Fecha de inicio / Start Date</label></th>
+                    <th><label for="Name">Fecha de devolución / Devolution Date</label></th>
+                    <th><label for="Name">Estado /Status</label></th>     
+                    </thead>
+                    <tbody id="allDates2"></tbody>
+                </table>
+
+                
+            </div>
+            
+            <div id="client" style="display:none"> 
+               <table class="table table-hover " >
+                    <thead>
+                    <th> <label for="Name">Total / Total</label></th>
+                    <th><label for="Name">Nombre / Name</label></th>
+                    <th><label for="Name">Correo Electrónico/ Email</label></th>   
+                    <th><label for="Name">Edad / Age</label></th>
+                    </thead>
+                    <tbody id="allClients"></tbody>
+                </table>
+
+                
+            </div>
             <hr>
             <div>
                 <a href="report.html" class="btn btn-link">Volver a la página anterior</a>
                 <a href="index.html" class="btn btn-link">Volver al inicio</a>
             </div>
         </div>
-        
+
     </body>
     <script type="text/javascript">
         $.get("/user", function (data) {

@@ -1,5 +1,5 @@
-var urlBaseQuadbike = "http://localhost:8080/api/Quadbike";
-var urlBaseCategory = "http://localhost:8080/api/Category";
+var urlBaseQuadbike = "http://150.136.58.216:8080/api/Quadbike";
+var urlBaseCategory = "http://150.136.58.216:8080/api/Category";
 $(document).ready(getQuadbike);
 $(document).ready(autoInicio);
 
@@ -20,8 +20,8 @@ function getQuadbike() {
                 $("#allItems").append("<td>" + misItems[i].year + "</td>");
                 $("#allItems").append("<td>" + misItems[i].description + "</td>");
                 $("#allItems").append("<td>" + misItems[i].category.name == null ? "No hay categorias" : misItems[i].category.name + "</td>");
-                $("#allItems").append('<td><button class="btn btn-link" onclick="deleteQuadbike(' + misItems[i].id + ')">Borrar Cuatrimoto</button>');
-                $("#allItems").append('<td><button class="btn btn-link" onclick="getQuadbikeById(' + misItems[i].id + ')">Actualizar Cuatrimoto</button>');
+                $("#allItems").append('<td><button class="btn btn-outline-danger" onclick="deleteQuadbike(' + misItems[i].id + ')">Borrar Cuatrimoto</button>');
+                $("#allItems").append('<td><button class="btn btn-outline-info" onclick="getQuadbikeById(' + misItems[i].id + ')">Actualizar Cuatrimoto</button>');
                 $("#allItems").append("</tr>");
             }
         },

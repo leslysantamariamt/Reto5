@@ -1,6 +1,6 @@
-var urlBaseClient = "http://localhost:8080/api/Client";
-var urlBaseQuadbike = "http://localhost:8080/api/Quadbike";
-var urlBaseReservation = "http://localhost:8080/api/Reservation";
+var urlBaseClient = "http://150.136.58.216:8080/api/Client";
+var urlBaseQuadbike = "http://150.136.58.216:8080/api/Quadbike";
+var urlBaseReservation = "http://150.136.58.216:8080/api/Reservation";
 $(document).ready(getReservation);
 function getReservation() {
     $("#info").removeAttr("style");
@@ -42,8 +42,8 @@ function getReservation() {
                 $("#allItems").append("<td>" + misItems[i].status + "</td>");
                 $("#allItems").append("<td>" + misItems[i].client.idClient + ' ' + misItems[i].client.name + ' ' + misItems[i].client.email + "</td>");
                 $("#allItems").append("<td>" + '<button class="btn btn-link" onclick="score(' + misItems[i].score + ')">' + (misItems[i].score == null) ? "0" : misItems[i].score + '</button>' + "</td>");
-                $("#allItems").append('<td><button class="btn btn-link" onclick="deleteReservation(' + misItems[i].idReservation + ')">Borrar Reservación </button>');
-                $("#allItems").append('<td><button class="btn btn-link" onclick="getReservationById(' + misItems[i].idReservation + ')">Actualizar Reservación</button>');
+                $("#allItems").append('<td><button class="btn btn-outline-danger" onclick="deleteReservation(' + misItems[i].idReservation + ')">Borrar Reservación </button>');
+                $("#allItems").append('<td><button class="btn btn-outline-info" onclick="getReservationById(' + misItems[i].idReservation + ')">Actualizar Reservación</button>');
                 $("#allItems").append("</tr>");
             }
         },

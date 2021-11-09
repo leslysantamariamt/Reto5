@@ -1,10 +1,11 @@
-var urlBaseClient = "http://localhost:8080/api/Client";
-var urlBaseQuadbike = "http://localhost:8080/api/Quadbike";
+var urlBaseClient = "http://150.136.58.216:8080/api/Client";
+var urlBaseQuadbike = "http://150.136.58.216:8080/api/Quadbike";
 
 $(document).ready(getClient);
 
 function getClient() {
     $("#info").removeAttr("style");
+    
     hideForm();
     $.ajax({
         dataType: 'json',
@@ -17,8 +18,8 @@ function getClient() {
                 $("#allItems").append("<td>" + misItems[i].name + "</td>");
                 $("#allItems").append("<td>" + misItems[i].email + "</td>");
                 $("#allItems").append("<td>" + misItems[i].age + "</td>");
-                $("#allItems").append('<td><button class="btn btn-link" onclick="deleteClient(' + misItems[i].idClient + ')">Borrar Cliente</button>');
-                $("#allItems").append('<td><button class="btn btn-link" onclick="getClientById(' + misItems[i].idClient + ')">Actualizar Cliente</button>');
+                $("#allItems").append('<td><button class="btn btn-outline-danger" onclick="deleteClient(' + misItems[i].idClient + ')">Borrar Cliente</button>');
+                $("#allItems").append('<td><button class="btn btn-outline-info" onclick="getClientById(' + misItems[i].idClient + ')">Actualizar Cliente</button>');
                 $("#allItems").append("</tr>");
             }
         },
